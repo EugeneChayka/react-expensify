@@ -1,5 +1,47 @@
 import {createStore, combineReducers} from 'redux';
 
+console.log('redux-expensify');
+
+// Epenses Reducer
+
+const expensesReducerDefaultState = [];
+
+const expensesReducer = (state = expensesReducerDefaultState, action) =>
+{
+    switch (action.type)
+    {
+        default:
+            return state;
+    }
+};
+
+// Filters Reducer
+
+const filtersReducersDefaultState = {
+    text:'',
+    sortBy: 'date',
+    startDate: undefined,
+    endDate: undefined
+};
+
+const filtersReducer = (state = filtersReducersDefaultState, action) => {
+    switch (action.type){
+        default:
+            return state;
+    }
+};
+
+// Store
+
+const store = createStore(
+    combineReducers({
+        expanses: expensesReducer,
+        filters: filtersReducer
+    })
+);
+
+console.log(store.getState());
+
 const demoState = {
     expenses: [{
         id: 'qq',
@@ -15,5 +57,3 @@ const demoState = {
         endDate: undefined
     }
 };
-
-console.log('redux-expensify');
