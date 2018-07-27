@@ -33,7 +33,11 @@ const resetCount = () => ({
     type: 'RESET',
 });
 
-const store = createStore((state = {count: 0}, action) =>
+// Redusers
+// 1. Pure functions
+// 2. Never change state or action. Immutability
+
+const countReduser = (state = {count: 0}, action) =>
 {
     switch (action.type){
         case 'INCREMENT':
@@ -58,7 +62,9 @@ const store = createStore((state = {count: 0}, action) =>
         default:
             return state;
     }
-});
+};
+
+const store = createStore(countReduser);
 
 const unsubscribe = store.subscribe(() => {
     console.log(store.getState());
