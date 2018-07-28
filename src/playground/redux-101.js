@@ -30,7 +30,7 @@ const setCount = ({ count }) => ({
 });
 
 const resetCount = () => ({
-    type: 'RESET',
+    type: 'RESET'
 });
 
 // Redusers
