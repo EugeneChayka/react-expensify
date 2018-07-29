@@ -1,24 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import AppRouter from './routers/AppRouter';
-import configureStore from './store/configureStore'
-import {addExpense} from "./actions/expenses";
-import {setTextFilter} from "./actions/filters";
-import getVisibleExpenses from './selectors/expenses'
-import 'normalize.css/normalize.css';
-import './styles/styles.scss';
+// Higher Order Component (HOC) pattern - A component (HOC) that renders another component
+// Reuse code
+// Render hijacking
+// Prop manipulation
+// Abstract state
 
-const store = configureStore();
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-//add Expense - water bill
-store.dispatch(addExpense({description: 'Water Bill'}));
-store.dispatch(addExpense({description: 'Gas Bill'}));
-store.dispatch(setTextFilter('wat'));
+const Info = (props) =>(
+    <div>
+        <h1>Info</h1>
+        <p>The info is: {props.info}</p>
+    </div>
+);
 
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+const withAdminWarning = (WrappedComponent) => {
+    return (props) => (
+        <div>
+            { props.isAdmin && <p>This is private info. Please don't share!</p>}
+            <WrappedComponent {...props}/>
+        </div>
+    );
+};
 
-console.log(visibleExpenses);
+const requireAuthentication = (WrappedComponent) => {
+    return (props) => (
+        <div>
+            {props.isAuthenticated ? (
+                <WrappedComponent {...props} />
+            ) : (
+                <p>You're not authenticated. Please login to view the info</p>
+            )}
+        </div>
+    )
+};
 
-const appRoot = document.getElementById('app');
-ReactDOM.render(<AppRouter/>, appRoot);
+const AdminInfo = withAdminWarning(Info);
+const AuthInfo = requireAuthentication(Info);
+
+// ReactDOM.render(<AdminInfo isAdmin={true} info="These are the details" />, document.getElementById('app'))
+ReactDOM.render(<AuthInfo isAuthenticated={true} info="These are the details" />, document.getElementById('app'))
