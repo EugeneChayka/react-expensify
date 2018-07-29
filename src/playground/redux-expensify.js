@@ -181,21 +181,21 @@ store.dispatch(sortByAmount());
 // store.dispatch(setEndDate(1000));
 // store.dispatch(setEndDate());
 
-const demoState = {
-    expenses: [{
-        id: 'qq',
-        description: 'January rent',
-        note: 'This was the final payment for that address',
-        amount: 54500,
-        createdAt: 0
-    }],
-    filters: {
-        text: 'rent',
-        sortBy: 'date', // or amount
-        startDate: undefined,
-        endDate: undefined
-    }
-};
+// const demoState = {
+//     expenses: [{
+//         id: 'qq',
+//         description: 'January rent',
+//         note: 'This was the final payment for that address',
+//         amount: 54500,
+//         createdAt: 0
+//     }],
+//     filters: {
+//         text: 'rent',
+//         sortBy: 'date', // or amount
+//         startDate: undefined,
+//         endDate: undefined
+//     }
+// };
 
 // const user = {
 //     name: 'JEn',
