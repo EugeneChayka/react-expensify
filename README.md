@@ -6,8 +6,9 @@ expensify
 * git add - Add files to staging area
 * git commit - Creates a new commit with files from staging area
 * git log - view recent commits 
-
+* git remote
+* git remote -v
 
 # Server Commands
 
-* node server/server.js - run server for production
+* node server/server.js  - run server for production
