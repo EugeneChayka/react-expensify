@@ -29,3 +29,5 @@ yarn install
 
 yarn run start 
 yarn start
+
+yarn run dev server + yarn test -- --watch
