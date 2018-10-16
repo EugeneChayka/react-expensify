@@ -8,6 +8,8 @@ expensify
 * git log - view recent commits 
 * git remote
 * git remote -v
+git commit -a -m "asdfasdf"
+git commit -am "asdfasd"
 
 # Server Commands
 
@@ -17,3 +19,13 @@ git push heroku master
 heroku open
 heroku create appName
 heroku login
+
+heroku logs
+
+yarn add chalk123 ---dev
+
+yarn install --production
+yarn install
+
+yarn run start 
+yarn start
