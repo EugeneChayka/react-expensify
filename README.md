@@ -22,7 +22,7 @@ heroku login
 
 heroku logs
 
-yarn add chalk123 ---dev
+yarn add chalk@1.2.3 ---dev
 
 yarn install --production
 yarn install
