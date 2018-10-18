@@ -27,18 +27,13 @@ database.ref().set({
     console.log('This failed. ', e)
 })
 
-// database.ref().set('This is my data.')
+// database.ref('isSingle').set(null)
 
-// database.ref('age').set(27)
-// database.ref('location/city').set('Lviv')
-
-database.ref('attributes').set({
-    height: 180,
-    weight: 70
-}).then(() => {
-    console.log('Attributes is saved!')
-}).catch((e) => {
-    console.log('This failed.', e)
-})
-
-console.log('I made a request to change the data.')
+// database.ref('isSingle')
+//     .remove()
+//     .then(() => {
+//         console.log('Data was removed')
+//     })
+//     .catch((e) => {
+//         console.log('Data was NOT removed', e)
+//     })
