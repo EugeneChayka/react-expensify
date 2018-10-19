@@ -31,3 +31,7 @@ yarn run start
 yarn start
 
 yarn run dev server + yarn test -- --watch
+
+heroku config
+heroku config:set KEY=value
+heroku config:unset KEY
