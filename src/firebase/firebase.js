@@ -13,25 +13,56 @@ firebase.initializeApp(config)
 
 const database = firebase.database()
 
+//child_removed
+database.ref('expenses').on('child_removed', (snapshot) => {
+    console.log(snapshot.key, snapshot.val())
+})
+
+//child_changed
+database.ref('expenses').on('child_changed', (snapshot) => {
+    console.log(snapshot.key, snapshot.val())
+})
+
+//child_added
+database.ref('expenses').on('child_added', (snapshot) => {
+    console.log(snapshot.key, snapshot.val())
+})
+
+// const printExpenses = (snapshot) => {
+//     const expenses = []
+//
+//     snapshot.forEach((childSnapshot) => {
+//         expenses.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val()
+//         })
+//     })
+//
+//     console.log(expenses)
+// };
+//
+// database.ref('expenses').on('value', printExpenses)
+
+
+// database.ref('expenses')
+//     .once('value')
+//     .then((snapshot) => {
+//         const expenses = []
+//
+//         snapshot.forEach((childSnapshot) => {
+//             expenses.push({
+//                 id: childSnapshot.key,
+//                 ...childSnapshot.val()
+//             })
+//         })
+//         console.log(expenses)
+//     })
+
 database.ref('expenses').push({
     description: 'iPhone',
     note: 'bought new iPhone',
     amount: 100000,
     createdAt: 0
-})
-
-database.ref('expenses').push({
-    description: 'iPod',
-    note: 'bought new iPod',
-    amount: 30000,
-    createdAt: 1
-})
-
-database.ref('expenses').push({
-    description: 'iMac',
-    note: 'bought new Mac',
-    amount: 150000,
-    createdAt: 3
 })
 
 // database.ref('notes').push({
