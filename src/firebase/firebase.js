@@ -46,19 +46,23 @@ export { firebase, database as default }
 // // database.ref('expenses').on('value', printExpenses)
 //
 //
-// // database.ref('expenses')
-// //     .once('value')
-// //     .then((snapshot) => {
-// //         const expenses = []
-// //
-// //         snapshot.forEach((childSnapshot) => {
-// //             expenses.push({
-// //                 id: childSnapshot.key,
-// //                 ...childSnapshot.val()
-// //             })
-// //         })
-// //         console.log(expenses)
-// //     })
+
+// database.ref('expenses')
+//     .once('value')
+//     .then((snapshot) => {
+//         const expenses = []
+//
+//         snapshot.forEach((childSnapshot) => {
+//             expenses.push({
+//                 id: childSnapshot.key,
+//                 ...childSnapshot.val()
+//             })
+//         })
+
+//         console.log(expenses)
+//     })
+
+
 //
 // database.ref('expenses').push({
 //     description: 'iPhone',
